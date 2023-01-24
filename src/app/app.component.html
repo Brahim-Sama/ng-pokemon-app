@@ -1,7 +1,42 @@
-<h1>Liste de Pokémons</h1>
-<input #input (keyup.enter)="selectPokemon(input.value)" type="number" />
-<p *ngIf="pokemonSelected">
-  Vous avez sélectionné : {{ pokemonSelected?.name }}
-</p>
-<p *ngIf="!pokemonSelected">Aucun pokémon n'a été trouvé</p>
-<p *ngFor="let pokemon of pokemonList">{{ pokemon.name }}</p>
+<h1 class="center">Pokémons</h1>
+<div class="container">
+  <input #input (keyup.enter)="selectPokemon(input.value)" type="number" />
+  <div *ngIf="pokemonSelected">
+    <div class="col s4">
+      <h2 class="header">{{ pokemonSelected?.name }}</h2>
+      <div class="card horizontal">
+        <div class="card-image">
+          <img src="{{ pokemonSelected?.picture }}" />
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p>Créé le : {{ pokemonSelected?.created }}</p>
+            <p>hp : {{ pokemonSelected?.hp }}</p>
+            <p>cp :{{ pokemonSelected?.cp }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p *ngIf="!pokemonSelected">Aucun pokémon n'a été trouvé</p>
+
+  <div class="row">
+    <div *ngFor="let pokemon of pokemonList">
+      <div class="col s4">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img [src]="pokemon.picture" />
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p class="header blue-text">{{ pokemon.name }}</p>
+              <p>Créer le : {{ pokemon.created }}</p>
+              <p>hp : {{ pokemon.hp }}</p>
+              <p>cp : {{ pokemon.cp }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
