@@ -1,6 +1,7 @@
 <h1 class="center">Pokémons</h1>
 <div class="container">
-  <input #input (keyup.enter)="selectPokemon(input.value)" type="number" />
+  <!-- <input #input (keyup.enter)="selectPokemon(input.value)" type="number" />
+
   <div *ngIf="pokemonSelected">
     <div class="col s4">
       <h2 class="header">{{ pokemonSelected?.name }}</h2>
@@ -18,15 +19,11 @@
       </div>
     </div>
   </div>
-  <p *ngIf="!pokemonSelected">Aucun pokémon n'a été trouvé</p>
+  <p *ngIf="!pokemonSelected">Aucun pokémon n'a été trouvé</p> -->
 
   <div class="row">
     <div *ngFor="let pokemon of pokemonList" class="col s4">
-      <div
-        class="card horizontal"
-        (onclick)="selectPokemon(pokemon.name)"
-        pkmnBorderCard
-      >
+      <div class="card horizontal" pkmnBorderCard="red">
         <div class="card-image">
           <img [src]="pokemon.picture" />
         </div>

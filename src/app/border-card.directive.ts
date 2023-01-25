@@ -1,5 +1,5 @@
 import { style } from "@angular/animations";
-import { Directive, ElementRef, HostListener } from "@angular/core";
+import { Directive, ElementRef, HostListener, Input } from "@angular/core";
 
 @Directive({
   selector: "[pkmnBorderCard]",
@@ -10,8 +10,11 @@ export class BorderCardDirective {
     this.setBorder("#F5F5F5");
   }
 
+  @Input("pkmnBorderCard") borderColor: string;
+  @Input("pkmnBorderCard") borderHeight: number;
+
   @HostListener("mouseenter") onMouseEnter() {
-    this.setBorder("#009688");
+    this.setBorder(this.borderColor || "#009688");
   }
 
   @HostListener("mouseenter") onMouseLeave() {
