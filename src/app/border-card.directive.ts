@@ -5,20 +5,23 @@ import { Directive, ElementRef, HostListener, Input } from "@angular/core";
   selector: "[pkmnBorderCard]",
 })
 export class BorderCardDirective {
+  private initialColor: string = "#F5F5F5";
+  private defaultColor: string = "#009688";
+  private defaultHeight: number = 180;
+
   constructor(private el: ElementRef) {
-    this.setHeight(180);
-    this.setBorder("#F5F5F5");
+    this.setBorder(this.initialColor);
+    this.setHeight(this.defaultHeight);
   }
 
   @Input("pkmnBorderCard") borderColor: string;
-  @Input("pkmnBorderCard") borderHeight: number;
 
   @HostListener("mouseenter") onMouseEnter() {
-    this.setBorder(this.borderColor || "#009688");
+    this.setBorder(this.borderColor || this.defaultColor);
   }
 
   @HostListener("mouseenter") onMouseLeave() {
-    this.setBorder("#F5F5F5");
+    this.setBorder(this.initialColor);
   }
 
   private setHeight(height: number) {
