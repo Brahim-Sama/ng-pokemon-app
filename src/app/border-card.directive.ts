@@ -1,4 +1,3 @@
-import { style } from "@angular/animations";
 import { Directive, ElementRef, HostListener, Input } from "@angular/core";
 
 @Directive({
@@ -20,15 +19,16 @@ export class BorderCardDirective {
     this.setBorder(this.borderColor || this.defaultColor);
   }
 
-  @HostListener("mouseenter") onMouseLeave() {
+  @HostListener("mouseleave") onMouseLeave() {
     this.setBorder(this.initialColor);
   }
 
-  private setHeight(height: number) {
-    this.el.nativeElement.height = `${height}px`;
+  private setBorder(color: string) {
+    let border = "solid 4px " + color;
+    this.el.nativeElement.style.border = border;
   }
 
-  private setBorder(color: string) {
-    this.el.nativeElement.border = `solid 4x ${color}`;
+  private setHeight(height: number) {
+    this.el.nativeElement.style.height = `${height}px`;
   }
 }
