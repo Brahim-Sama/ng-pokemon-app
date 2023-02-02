@@ -17,7 +17,7 @@ export class DetailPokemonComponent implements OnInit {
     private pokemonService: PokemonService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     const pokemonId: string | null = this.route.snapshot.paramMap.get("id");
 
     if (pokemonId != null) {
@@ -27,5 +27,9 @@ export class DetailPokemonComponent implements OnInit {
 
   goToPokemonList() {
     this.router.navigate(["/pokemons"]);
+  }
+
+  goToEditPokemon(pokemon: Pokemon) {
+    this.router.navigate(["/edit/pokemon", pokemon.id]);
   }
 }

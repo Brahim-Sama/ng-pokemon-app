@@ -15,6 +15,7 @@
             name="name"
             #name="ngModel"
           />
+
           <div
             [hidden]="name.valid || name.pristine"
             class="card-panel red accent-1"
@@ -22,6 +23,7 @@
             Le nom du pokémon est requis (1-25).
           </div>
         </div>
+
         <!-- Pokemon hp -->
         <div class="form-group">
           <label for="hp">Point de vie</label>
@@ -42,6 +44,7 @@
             Les points de vie du pokémon sont compris entre 0 et 999.
           </div>
         </div>
+
         <!-- Pokemon cp -->
         <div class="form-group">
           <label for="cp">Dégâts</label>
