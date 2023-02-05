@@ -23,12 +23,30 @@ export class PokemonService {
     );
   }
 
-  updatePokemon(pokemon: Pokemon): Observable<Pokemon | undefined> {
+  addPokemon(pokemon: Pokemon): Observable<null> {
+    const HttpOptions = {
+      headers: new HttpHeaders({ "Content-Type": "application/json" }),
+    };
+
+    return this.http.post("api/pokemons", pokemon, HttpOptions).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleError(error, null))
+    );
+  }
+
+  updatePokemon(pokemon: Pokemon): Observable<Pokemon | null> {
     const HttpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" }),
     };
 
     return this.http.put("api/pokemons", pokemon, HttpOptions).pipe(
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleError(error, null))
+    );
+  }
+
+  deletePokemonById(pokemonId: number): Observable<null> {
+    return this.http.delete(`api/pokemons/${pokemonId}`).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, undefined))
     );
