@@ -11,6 +11,7 @@ import { PokemonFormComponent } from "./pokemon-form/pokemon-form.component";
 import { EditPokemonComponent } from "./edit-pokemon/edit-pokemon.component";
 import { AddPokemonComponent } from "./add-pokemon/add-pokemon.component";
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
+import { LoaderComponent } from './loader/loader.component';
 
 const pokemonRoutes: Routes = [
   //décrire les routes les plus spécifiques en haut et les plus générales en bas.
@@ -30,6 +31,7 @@ const pokemonRoutes: Routes = [
     EditPokemonComponent,
     AddPokemonComponent,
     SearchPokemonComponent,
+    LoaderComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule.forChild(pokemonRoutes)],
   providers: [PokemonService],
