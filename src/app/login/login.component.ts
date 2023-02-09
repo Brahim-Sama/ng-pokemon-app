@@ -7,7 +7,8 @@ import { AuthService } from "../auth.service";
   templateUrl: "./login.component.html",
 })
 export class LoginComponent {
-  message: string = "Vous êtes déconnecté. (pikachu/pikachu)";
+  message: string =
+    "Vous êtes déconnecté. (name : pikachu / password : pikachu)";
   name: string;
   password: string;
   auth: AuthService;
